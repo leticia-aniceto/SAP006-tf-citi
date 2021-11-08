@@ -34,7 +34,18 @@ const Investing = () => {
           </p>
           <h3 className="title">Derivativos</h3>
           <p>
-            
+          Derivativos são contratos que derivam a maior parte de seu valor de um ativo subjacente, taxa 
+          de referência ou índice. O ativo subjacente pode ser físico (café, ouro, etc.) ou financeiro 
+          (ações, taxas de juros, etc.), negociado no mercado à vista ou não (é possível construir um 
+          derivativo sobre outro derivativo). Os derivativos podem classificados em contratos a termo, 
+          contratos futuros, opções de compra e venda, operações de swaps, entre outros, cada qual com 
+          suas características.
+          Os derivativos, em geral, são negociados sob a forma de contratos padronizados, isto é, 
+          previamente especificados (quantidade, qualidade, prazo de liquidação e forma de cotação do 
+          ativo-objeto sobre os quais se efetuam as negociações), em mercados organizados, com o fim 
+          de proporcionar, aos agentes econômicos, oportunidades para a realização de operações que 
+          viabilizem a transferência de risco das flutuações de preços de ativos e de variáveis 
+          macroeconômicas.
           </p>
         </div>
       </div>
