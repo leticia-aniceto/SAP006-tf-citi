@@ -2,13 +2,15 @@ import React from "react";
 // import { useState } from "react";
 import Button from '../components/button'
 import Navbar from "../components/navbar";
+import Header from "../components/header";
 import '../style.css'
-import {apiMensal} from "../services/alphavantage.js"
+import { apiMensal } from "../services/alphavantage.js"
 
 const Home = () => {
   apiMensal('AAPL')
   return (
     <>
+      <Header />
       <Navbar />
       <div className="text-center">
         <div className="container-fluid justify-content-center">
@@ -18,27 +20,21 @@ const Home = () => {
               <select className="form-select text-center" aria-label="Default select example ">
                 <option defaultValue>Ação 1</option>
                 <option value="1">Google</option>
-                <option value="2">Apple</option>
-                <option value="3">Microsoft</option>
               </select>
               <select className="form-select text-center" aria-label="Default select example">
                 <option defaultValue>Ação 2</option>
-                <option value="1">Google</option>
-                <option value="2">Apple</option>
-                <option value="3">Microsoft</option>
+                <option value="1">Apple</option>
               </select>
-              <select className="form-select text-center" aria-label="Default select example">
-                <option defaultValue>Ação 3</option>
-                <option value="1">Google</option>
-                <option value="2">Apple</option>
-                <option value="3">Microsoft</option>
-              </select>
+              <hr />
+              <input type="date"></input>
+              <input type="date"></input>
             </div>
           </form>
           <Button type="submit" text="Consultar" />
         </div>
       </div>
     </>
+
   );
 };
 
