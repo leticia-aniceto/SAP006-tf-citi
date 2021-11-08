@@ -1,6 +1,30 @@
 import axios from 'axios';
 
-const apiKey = 'T76M1J47E0ZCANSU'
+const axiosInstance = axios.create({
+  baseURL: 'https://www.alphavantage.co/query'
+});
+
+export const getDailyChartForSymbol = (symbol) => {
+  return axiosInstance.get('', {
+    params: {
+      function: 'TIME_SERIES_DAILY',
+      symbol,
+      apikey:'T76M1J47E0ZCANSU'
+    }
+  })
+};
+
+export const getMonthlyChartForSymbol = (symbol) => {
+  return axiosInstance.get('', {
+    params: {
+      function: 'TIME_SERIES_MONTHLY',
+      symbol,
+      apikey:'T76M1J47E0ZCANSU'
+    }
+  })
+};
+
+/*const apiKey = 'T76M1J47E0ZCANSU'
 
 export const apiMensal = (symbol)=> { return axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=${symbol}&apikey=${apiKey}`)
   .then(function (response) {
@@ -30,4 +54,4 @@ export const apiMensal = (symbol)=> { return axios.get(`https://www.alphavantage
   });
 };
 
-  
+ */ 

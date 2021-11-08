@@ -4,10 +4,10 @@ import Button from '../components/button'
 import Navbar from "../components/navbar";
 import Header from "../components/header";
 import '../style.css'
-import { apiMensal } from "../services/alphavantage.js"
+import Chart from "./chart";
 
 const Home = () => {
-  apiMensal('AAPL')
+
   return (
     <>
       <Header />
@@ -33,6 +33,7 @@ const Home = () => {
           <Button type="submit" text="Consultar" />
         </div>
       </div>
+      <Chart />
     </>
 
   );
