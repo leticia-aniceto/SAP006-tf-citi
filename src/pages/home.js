@@ -2,13 +2,15 @@ import React from "react";
 // import { useState } from "react";
 import Button from '../components/button'
 import Navbar from "../components/navbar";
+import Header from "../components/header";
 import '../style.css'
-import {apiMensal} from "../services/alphavantage.js"
+import { apiMensal } from "../services/alphavantage.js"
 
 const Home = () => {
   apiMensal('AAPL')
   return (
     <>
+      <Header />
       <Navbar />
       <div className="text-center">
         <div className="container-fluid justify-content-center">
