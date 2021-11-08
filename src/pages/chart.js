@@ -1,5 +1,10 @@
 import { useEffect, useState } from 'react';
+import { CanvasJSChart } from 'canvasjs-react-charts';
 import {getDailyChartForSymbol} from "../services/alphavantage.js"
+
+
+//var CanvasJS = CanvasJSReact.CanvasJS;
+//var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 const Chart = () => {
 const [stockData, setStockData] = useState([]);
@@ -14,7 +19,50 @@ const [stockData, setStockData] = useState([]);
   }, []);
   console.log(stockData);
   return (
-  <div> </div>
+ <CanvasJSChart
+ options = { {
+   axisX: {
+     scaleBreaks:{
+       spacing: 0,
+       fillOpacity: 0,
+       lineThickness: 0,
+       customBreaks: stockData.reduce((breaks, value, index, array) => {
+          const currentDataPointUnix = Number(new Date (value.date));
+          const previousDataPointUnix = Number(new Date(array[index - 1].date));
+
+          const oneDayInMs = 86400000;
+          const difference = previousDataPointUnix - currentDataPointUnix;
+
+          return difference === oneDayInMs
+            ? breaks
+            : [
+              ...breaks,
+              {
+                startValue: currentDataPointUnix,
+                endValue: previousDataPointUnix - oneDayInMs
+              }
+            ]
+       }, [])
+     }
+   },
+   data: [
+     {
+       type: 'candlestick',
+       dataPoints: stockData.map(stockData => ({
+         x: new Date(stockData.date),
+         y: [
+           stockData.open,
+           stockData.high,
+           stockData.low,
+           stockData.close
+         ]
+       }))
+     }
+   ]
+ }
+
+ }
+ />
   ) 
 };
 
