@@ -3,8 +3,10 @@ import React from "react";
 import Button from '../components/button'
 import Navbar from "../components/navbar";
 import '../style.css'
+import {apiMensal} from "../services/alphavantage.js"
 
 const Home = () => {
+  apiMensal('AAPL')
   return (
     <>
       <Navbar />
