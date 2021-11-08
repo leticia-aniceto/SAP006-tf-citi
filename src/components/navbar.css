@@ -1,9 +1,7 @@
-.navbar, .nav-link {
-    background-color: #EDF3F8;
-    color: #53565A;
-    border-radius: 0 0 14.35vh 0;
-    text-decoration: none;
+.navbar-nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-evenly;
 }
 
-
-/* background-color: #004DBE; */
