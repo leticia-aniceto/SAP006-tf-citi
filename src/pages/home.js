@@ -3,10 +3,12 @@ import React from "react";
 import Button from '../components/button'
 import Navbar from "../components/navbar";
 import '../style.css'
-import {apiMensal} from "../services/alphavantage.js"
+import Chart from "./chart";
 
 const Home = () => {
-  apiMensal('AAPL')
+
+
+    // apiMensal('AAPL')
   return (
     <>
       <Navbar />
@@ -38,6 +40,7 @@ const Home = () => {
           <Button type="submit" text="Consultar" />
         </div>
       </div>
+      <Chart />
     </>
   );
 };
