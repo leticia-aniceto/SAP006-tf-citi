@@ -18,13 +18,13 @@ const Investing = () => {
           </p>
           <h3 className="title">Tickers</h3>
           <p>
-            Ticker é um código usado na bolsa de valores para identificar e negociar um determinado 
-            ativo. Em outras palavras, ele é uma abreviação do nome do ativo para facilitar tanto 
-            a identificação quanto a negociação do mesmo. Ou seja, conhecer o ticker de uma ação 
-            é o primeiro passo para começar a investir na bolsa.
-            Desse modo, através dessa abreviação o investidor consegue encontrar o ativo na 
-            plataforma que utiliza e negociá-lo. Também é possível acompanhar a evolução de sua 
-            rentabilidade.
+          Ticker é um código usado na bolsa de valores para identificar e negociar um determinado 
+          ativo. Em outras palavras, ele é uma abreviação do nome do ativo para facilitar tanto 
+          a identificação quanto a negociação do mesmo. Ou seja, conhecer o ticker de uma ação 
+          é o primeiro passo para começar a investir na bolsa.
+          Desse modo, através dessa abreviação o investidor consegue encontrar o ativo na 
+          plataforma que utiliza e negociá-lo. Também é possível acompanhar a evolução de sua 
+          rentabilidade.
           </p>
           <h3 className="title">Benchmarking</h3>
           <p>
