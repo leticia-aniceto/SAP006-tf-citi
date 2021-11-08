@@ -1,9 +1,10 @@
 import React from 'react';
-import logo from '../img/logo.png'
+import logo from '../img/logo.png';
+import './navbar.css';
 
 function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg">
       <div className="container-fluid">
         <div className="container">
           <a className="navbar-brand" href="/">

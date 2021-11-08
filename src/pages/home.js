@@ -11,7 +11,7 @@ const Home = () => {
       <div className="text-center">
         <div className="container-fluid justify-content-center">
           <h2>Comparação de preços entre ações listadas na Bolsa</h2>
-          {/* <form className="row gy-2 gx-3 justify-content-center">
+          <form className="row gy-2 gx-3 justify-content-center">
             <div className="col-auto">
               <select className="form-select text-center" aria-label="Default select example ">
                 <option defaultValue>Ação 1</option>
@@ -25,7 +25,7 @@ const Home = () => {
               <input type="date"></input>
               <input type="date"></input>
             </div>
-          </form> */}
+          </form>
           <Button type="submit" text="Consultar" />
         </div>
       </div>
