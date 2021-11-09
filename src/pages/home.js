@@ -5,11 +5,14 @@ import Navbar from "../components/navbar";
 import Header from "../components/header";
 import '../style.css'
 import Chart from "./chart";
+import Rentability from "./rentability"
 
 const Home = () => {
 
   /* state para controlar ação de comparação */
   const [compare, doCompare] = useState(0);
+
+  const [compareTwo, doCompareTwo] = useState(0);
   /* state pra armazenar o intervalo do recorte dos dados históricos */
   const [interval, setInterval] = useState({ start: false, end: false });
   /* state para controlar todas as ações selecionadas, por default já vem o google */
@@ -90,6 +93,7 @@ const Home = () => {
                 {/* o botao fica desabilitado se os intervalos nao forem selecionados atraves da propriedade disabled */}
                 <button onClick={(e) => { e.preventDefault(); doCompare(prev => prev + 1); }} disabled={!interval.start || !interval.end} className="btn btn-dark btn-block mt-2">Consultar</button>
 
+                <button onClick={(e) => { e.preventDefault(); doCompareTwo(prev => prev + 1); }} disabled={!interval.start || !interval.end} className="btn btn-dark btn-block mt-2">Outro botão</button>
               </form>
 
             </div>
@@ -97,6 +101,11 @@ const Home = () => {
             <div className="col-7" >
               {/* renderiza o componente cada vez que as props forem alteradas */}
               <Chart compare={compare} symbols={selectedActions.map(action => action.symbol)} startDate={interval.start} endDate={interval.end} />
+
+            </div>
+            <div className="col-7" >
+              {/* renderiza o componente cada vez que as props forem alteradas */}
+              <Rentability compareTwo={compareTwo} symbols={selectedActions.map(action => action.symbol)} startDate={interval.start} endDate={interval.end} />
 
             </div>
 
