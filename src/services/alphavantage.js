@@ -88,6 +88,16 @@ export const getDailyChartForSymbols = (symbols, start, end) => {
   return Promise.all(symbols.map(symbol => getDailyChartForSymbol(symbol)));
 };
 
+export const searchName = (searchUser) => {
+    return axiosInstance.get('', {
+        params:{
+            function: 'SYMBOL_SEARCH',
+            apikey: process.env.REACT_APP_API_KEY,
+            keywords: searchUser
+        }
+    })
+}
+
 // export const getMonthlyChartForSymbol = (symbol) => {
 //   return axiosInstance.get('', {
 //     params: {
