@@ -6,9 +6,9 @@ import { getDailyChartForSymbolsTwo } from "../services/alphavantage.js";
 const Rentability = ({ symbols, startDate, endDate, compareTwo }) => {
 
   function logReturn(precoAtual, precoAnterior) {
-    const result = Math.log(precoAtual / (precoAnterior -1))
+    const result = Math.log(precoAtual / (precoAnterior - 1))
     return result * 100
-   }
+  }
 
   const [stockData, setStockData] = useState([]);
 
@@ -27,7 +27,7 @@ const Rentability = ({ symbols, startDate, endDate, compareTwo }) => {
     <CanvasJSChart
       options={{
         title: {
-          text: "Fechamento diário",
+          text: "Rentabilidade",
           fontFamily: "tahoma",
           fontSize: 20
 
@@ -42,8 +42,8 @@ const Rentability = ({ symbols, startDate, endDate, compareTwo }) => {
           }
         },
         axisY: {
-          title: "Valor",
-          prefix: "$",
+          title: "Rentabilidade",
+          prefix: "%",
           crosshair: {
             enabled: true,
             snapToDataPoint: true,
@@ -65,10 +65,10 @@ const Rentability = ({ symbols, startDate, endDate, compareTwo }) => {
             e.chart.render();
           }
         },
-    
+
         data: stockData.map((action) => ({
           type: "line",
-          name: action.symbol, 
+          name: action.symbol,
           markerType: "circle",
           markerSize: 4,
           showInLegend: true,
@@ -76,7 +76,7 @@ const Rentability = ({ symbols, startDate, endDate, compareTwo }) => {
           dataPoints: action.data.map((dataPoint) => ({
             label: new Date(dataPoint.date),
             x: new Date(dataPoint.date),
-            y:logReturn(dataPoint.price, dataPoint.priceopen)
+            y: logReturn(dataPoint.price, dataPoint.priceopen)
           }))
         }))
 

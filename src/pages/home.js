@@ -91,9 +91,9 @@ const Home = () => {
                   </div>
                 </div>
                 {/* o botao fica desabilitado se os intervalos nao forem selecionados atraves da propriedade disabled */}
-                <button onClick={(e) => { e.preventDefault(); doCompare(prev => prev + 1); }} disabled={!interval.start || !interval.end} className="btn btn-dark btn-block mt-2">Consultar</button>
+                <button onClick={(e) => { e.preventDefault(); doCompare(prev => prev + 1); }} disabled={!interval.start || !interval.end} className="btn btn-dark btn-block mt-2">Fechamento diário</button>
 
-                <button onClick={(e) => { e.preventDefault(); doCompareTwo(prev => prev + 1); }} disabled={!interval.start || !interval.end} className="btn btn-dark btn-block mt-2">Outro botão</button>
+                <button onClick={(e) => { e.preventDefault(); doCompareTwo(prev => prev + 1); }} disabled={!interval.start || !interval.end} className="btn btn-dark btn-block mt-2">Rentabilidade</button>
               </form>
 
             </div>
