@@ -51,7 +51,7 @@ const About = () => {
             </div>
             <div className="col-md-3">
               <div className="card">
-                <img src="" class="card-img-top" alt="Imagem de Perfil 4"/>
+                <img src="" class="card-img-top" alt="Imagem de Perfil 5"/>
                 <div className="card-body">
                   <h5 className="card-title">Paloma Queiroz</h5>
                   <a href='https://github.com/palomacqueiroz'><img alt='GitHub - Paloma' src='https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white'></img></a> <a href='https://www.linkedin.com/in/palomac-queiroz/'><img alt='LinkedIn - Paloma' src='https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white'></img></a>
@@ -60,7 +60,7 @@ const About = () => {
             </div>
             <div className="col-md-3">
               <div className="card">
-                <img src="img/profile4.jpg" class="card-img-top" alt="Imagem de Perfil 4"/>
+                <img src="img/profile4.jpg" class="card-img-top" alt="Imagem de Perfil 6"/>
                 <div className="card-body">
                   <h5 className="card-title">Rafaela Cugini</h5>
                   <a href='https://github.com/RafaelaCugini'><img alt='GitHub - Rafaela' src='https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white'></img></a> <a href='https://www.linkedin.com/in/rafaela-cugini-1002a225/'><img alt='LinkedIn - Rafaela' src='https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white'></img></a>
