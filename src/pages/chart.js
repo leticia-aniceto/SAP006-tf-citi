@@ -137,4 +137,5 @@ const Chart = ({ symbols, startDate, endDate, compare }) => {
 //   });
 // }
 
+
 export default Chart;
