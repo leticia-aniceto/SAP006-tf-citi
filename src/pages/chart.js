@@ -1,19 +1,23 @@
-import { useEffect, useState } from 'react';
-import { CanvasJSChart } from 'canvasjs-react-charts';
-import {getDailyChartForSymbol} from "../services/alphavantage.js"
+import { useEffect, useState } from "react";
+import { CanvasJSChart } from "canvasjs-react-charts";
+import { getDailyChartForSymbols } from "../services/alphavantage.js";
 
-const Chart = () => {
-const [stockData, setStockData] = useState([]);
-//const [stockDataTwo, setStockDataTwo] = useState([]);
+/* props desestruturadas */
+const Chart = ({ symbols, startDate, endDate, compare }) => {
 
+  /* state para controlar os dados do gráfico */
+  const [stockData, setStockData] = useState([]);
+
+  /* hook para capturar alterações na prop compare para então, caso todas as outras props estiverem preenchidas,
+   fazer a chamada da função interna fetchStockData que faz a chamada da função getDailyChartForSymbols em alphavantage.js
+   e atualiza o state que controla os dados do grafico */
   useEffect(() => {
-    const fetchStockData = async () => {
-      const result = await getDailyChartForSymbol('AAPL');
-      setStockData(formatStockData(result.data['Time Series (Daily)']))
-    }
-    fetchStockData()
-  }, []);
-  console.log(stockData);
+    const fetchStockData = async (symbols, startDate, endDate) => {
+      const stockData = await getDailyChartForSymbols(symbols, startDate, endDate);
+      setStockData(stockData);
+    };
+    if (symbols && startDate && endDate) fetchStockData(symbols, startDate, endDate);
+  }, [compare]);
 
   // useEffect(() => {
   //   const fetchStockDataTwo = async () => {
@@ -26,89 +30,111 @@ const [stockData, setStockData] = useState([]);
 
   return (
     <CanvasJSChart
-        options={ {
-            axisY: {
-                // Minimum value is 10% less than the lowest price in the dataset
-                minimum: Math.min(...stockData.map(data => data.low)) / 1.1,
-                // Minimum value is 10% more than the highest price in the dataset
-                maximum: Math.max(...stockData.map(data => data.high)) * 1.1,
-                crosshair: {
-                    enabled: true,
-                    snapToDataPoint: true
-                }
-            },
-            axisX: {
-                crosshair: {
-                    enabled: true,
-                    snapToDataPoint: true
-                },
-                scaleBreaks: {
-                    spacing: 0,
-                    fillOpacity: 0,
-                    lineThickness: 0,
-                    customBreaks: stockData.reduce((breaks, value, index, array) => {
-                        // Just return on the first iteration
-                        // Since there is no previous data point
-                        if (index === 0) return breaks;
+      options={{
+        title: {
+          text: "Fechamento diário",
+          fontFamily: "tahoma",
+          fontSize: 20
 
-                        // Time in UNIX for current and previous data points
-                        const currentDataPointUnix = Number(new Date(value.date));
-                        const previousDataPointUnix = Number(new Date(array[index - 1].date));
+        },
+        height: 400,
+        axisX: {
+          valueFormatString: "MMM YYYY",
+          // crosshair do eixo X
+          crosshair: {
+            enabled: true,
+            snapToDataPoint: true,
+            valueFormatString: "MMM YYYY"
+          }
+        },
+        axisY: {
+          title: "Valor",
+          prefix: "$",
+          // crosshair do eixo Y
+          crosshair: {
+            enabled: true,
+            snapToDataPoint: true,
+            valueFormatString: "$#",
+          }
 
-                        // One day converted to milliseconds
-                        const oneDayInMs = 86400000;
+        },
+        toolTip: {
+          shared: true
+        },
+        legend: {
+          cursor: "pointer",
+          verticalAlign: "top",
+          horizontalAlign: "center",
+          // inverte a visibilidade das linhas quando se clica nos itens da legenda
+          itemclick: (e) => {
+            if (e.dataSeries.visible) e.dataSeries.visible = false;
+            else e.dataSeries.visible = true;
+            e.chart.render();
+          }
+        },
+        /* processa dados obtidos da api para mostrar as linhas relativas a cada ação selecionada*/
+        data: stockData.map((action) => ({
+          type: "line",
+          name: action.symbol, // simbolo da ação para lgenda
+          markerType: "circle",
+          markerSize: 4,
+          showInLegend: true,
+          markerBorderThickness: 0,
+          dataPoints: action.data.map((dataPoint) => ({
+            label: new Date(dataPoint.date),
+            x: new Date(dataPoint.date),
+            y: dataPoint.price
+          }))
+        }))
 
-                        // Difference between the current and previous data points
-                        // In milliseconds
-                        const difference = previousDataPointUnix - currentDataPointUnix;
+        // data: [
+        //   {
+        //     type: "line",
+        //     name: "Apple",
+        //     markerType: "circle",
+        //     markerSize: 4,
+        //     showInLegend: true,
+        //     markerBorderThickness: 0,
+        //     dataPoints: stockData.map((stockData) => ({
+        //       x: new Date(stockData.date),
+        //       label: new Date(stockData.date),
 
-                        return difference === oneDayInMs
-                            // Difference is 1 day, no scale break is needed
-                            ? breaks
-                            // Difference is more than 1 day, need to create
-                            // A new scale break
-                            : [
-                                ...breaks,
-                                {
-                                    startValue: currentDataPointUnix,
-                                    endValue: previousDataPointUnix - oneDayInMs
-                                }
-                            ]
-                    }, [])
-                }
-            },
-            data: [
-                {
-                    type: 'candlestick',
-                    dataPoints: stockData.map(stockData => ({
-                        x: new Date(stockData.date),
-                        // The OHLC for the data point
-                        // The order is IMPORTANT!
-                        y: [
-                            stockData.open,
-                            stockData.high,
-                            stockData.low,
-                            stockData.close
-                        ]
-                    }))
-                }
-            ]
-        } }
+        //       // The OHLC for the data point
+        //       // The order is IMPORTANT!  
+        //       y: stockData.close,
+        //     })),
+        //   },
+        //   {
+        //     type: "line",
+        //     name: "Google",
+        //     showInLegend: true,
+        //     markerSize: 5,
+
+        //     dataPoints: stockData.map((stockData) => ({
+        //       x: new Date(stockData.date),
+        //       // The OHLC for the data point
+        //       // The order is IMPORTANT!
+        //       label: new Date(stockData.date),
+        //       y: stockData.close - 50,
+        //     })),
+        //   },
+        // ],
+      }}
     />
-);
+  );
 };
- 
-function formatStockData(stockData) {
-  return Object.entries(stockData).map( entries => {
-    const [date, priceData] = entries;
-    return {
-      date,
-      open: Number(priceData['1. open']),
-      high: Number(priceData['2. high']),
-      low: Number(priceData['3. low']),
-      close: Number(priceData['4. close'])
-    }
-  })
-}
+
+// function formatStockData(stockData) {
+//   return Object.entries(stockData).map((entries) => {
+//     const [date, priceData] = entries;
+//     return {
+//       date,
+//       open: Number(priceData["1. open"]),
+//       high: Number(priceData["2. high"]),
+//       low: Number(priceData["3. low"]),
+//       close: Number(priceData["4. close"]),
+//     };
+//   });
+// }
 
 export default Chart;
