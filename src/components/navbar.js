@@ -20,10 +20,10 @@ function Navbar() {
               <a className="nav-link active" aria-current="page" href="/investing">Sobre investimentos</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" target="_blank" rel="noopener noreferrer" href="https://corporateportal.brazil.citibank.com/quem-somos.htm">Sobre o Citi</a>
+              <a className="nav-link active" aria-current="page" href="/about">Desenvolvedoras</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/about">Desenvolvedoras</a>
+              <a className="nav-link active" aria-current="page" target="_blank" rel="noopener noreferrer" href="https://corporateportal.brazil.citibank.com/quem-somos.htm">Sobre o Citi</a>
             </li>
           </ul>
         </div>
