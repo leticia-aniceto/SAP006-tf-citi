@@ -3,11 +3,11 @@ import { CanvasJSChart } from "canvasjs-react-charts";
 import { getDailyChartForSymbolsTwo } from "../services/alphavantage.js";
 
 /* props desestruturadas */
-const Rentability = ({ symbols, startDate, endDate, compare }) => {
+const Rentability = ({ symbols, startDate, endDate, compareTwo }) => {
 
   function logReturn(precoAtual, precoAnterior) {
     const result = Math.log(precoAtual / (precoAnterior -1))
-    return result
+    return result * 100
    }
 
   const [stockData, setStockData] = useState([]);
@@ -15,10 +15,12 @@ const Rentability = ({ symbols, startDate, endDate, compare }) => {
   useEffect(() => {
     const fetchStockData = async (symbols, startDate, endDate) => {
       const stockData = await getDailyChartForSymbolsTwo(symbols, startDate, endDate);
+
+      console.log(stockData)
       setStockData(stockData);
     };
     if (symbols && startDate && endDate) fetchStockData(symbols, startDate, endDate);
-  }, [compare]);
+  }, [compareTwo]);
 
 
   return (
@@ -65,7 +67,7 @@ const Rentability = ({ symbols, startDate, endDate, compare }) => {
         },
     
         data: stockData.map((action) => ({
-          type: "dashed",
+          type: "line",
           name: action.symbol, 
           markerType: "circle",
           markerSize: 4,
@@ -74,7 +76,7 @@ const Rentability = ({ symbols, startDate, endDate, compare }) => {
           dataPoints: action.data.map((dataPoint) => ({
             label: new Date(dataPoint.date),
             x: new Date(dataPoint.date),
-            y: logReturn(dataPoint.price, dataPoint.priceopen)
+            y:logReturn(dataPoint.price, dataPoint.priceopen)
           }))
         }))
 
