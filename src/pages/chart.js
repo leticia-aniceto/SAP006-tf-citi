@@ -19,6 +19,15 @@ const Chart = ({ symbols, startDate, endDate, compare }) => {
     if (symbols && startDate && endDate) fetchStockData(symbols, startDate, endDate);
   }, [compare]);
 
+  // useEffect(() => {
+  //   const fetchStockDataTwo = async () => {
+  //     const resultTwo = await getDailyChartForSymbol('GOOG')
+  //     setStockDataTwo(formatStockData(resultTwo.data['Time Series (Daily)']))
+  //   }
+  //   fetchStockDataTwo()
+  // }, []);
+  // console.log(stockDataTwo)
+
   return (
     <CanvasJSChart
       options={{
@@ -127,5 +136,6 @@ const Chart = ({ symbols, startDate, endDate, compare }) => {
 //     };
 //   });
 // }
+
 
 export default Chart;
