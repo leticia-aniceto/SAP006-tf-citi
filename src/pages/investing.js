@@ -1,17 +1,19 @@
 import React from "react";
 import Navbar from "../components/navbar";
 import Header from "../components/header";
+import Banner from "../components/banner";
 
 const Investing = () => {
   return (
     <>
       <Header />
       <Navbar />
+      <Banner />
       <div className="text-center">
         <div className="container-fluid justify-content-center">
-          <h2>Espaço para investimentos</h2>
+          <h2 className="title">Espaço para investimentos</h2>
           <section className="profile-cards">    
-              <div className="col-md-5 border-dark mb-3">
+              <div className="col-md-5">
                 <div className="card">
                   <h5 className="card-title">Mercado de Capitais</h5>
                   <h6 className="card-subtitle mb-2 text-muted">O que é Mercado de Capitais?</h6>

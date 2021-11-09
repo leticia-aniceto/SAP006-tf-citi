@@ -1,0 +1,14 @@
+
+.profile-cards{
+    flex-flow: column wrap;
+    justify-content: space-evenly;
+}
+
+.col-md-5{
+    margin: 10px;
+}
+
+.card {
+    border: 1px solid black;
+    border-radius: .25rem;
+}   
