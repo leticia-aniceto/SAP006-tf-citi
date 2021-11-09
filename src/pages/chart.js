@@ -4,16 +4,25 @@ import {getDailyChartForSymbol} from "../services/alphavantage.js"
 
 const Chart = () => {
 const [stockData, setStockData] = useState([]);
+//const [stockDataTwo, setStockDataTwo] = useState([]);
 
   useEffect(() => {
     const fetchStockData = async () => {
-      const result = await getDailyChartForSymbol('AAPL')
-
+      const result = await getDailyChartForSymbol('AAPL');
       setStockData(formatStockData(result.data['Time Series (Daily)']))
     }
     fetchStockData()
   }, []);
   console.log(stockData);
+
+  // useEffect(() => {
+  //   const fetchStockDataTwo = async () => {
+  //     const resultTwo = await getDailyChartForSymbol('GOOG')
+  //     setStockDataTwo(formatStockData(resultTwo.data['Time Series (Daily)']))
+  //   }
+  //   fetchStockDataTwo()
+  // }, []);
+  // console.log(stockDataTwo)
 
   return (
     <CanvasJSChart
