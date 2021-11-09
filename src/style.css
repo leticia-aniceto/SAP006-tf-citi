@@ -16,3 +16,21 @@ select {
 .gray {
   background-color: var(--gray);
 }
+
+mr-2 {
+  margin-right: 10px !important;
+}
+
+.title {
+  text-align: center;
+  font-weight: bold;
+  margin: 40px 0px;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+select {
+  margin: 5px 0 !important;
+}
