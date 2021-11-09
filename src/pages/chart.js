@@ -3,7 +3,7 @@ import { CanvasJSChart } from "canvasjs-react-charts";
 import { getDailyChartForSymbols } from "../services/alphavantage.js";
 
 /* props desestruturadas */
-const Chart = ({symbols, startDate, endDate, compare}) => {
+const Chart = ({ symbols, startDate, endDate, compare }) => {
 
   /* state para controlar os dados do gráfico */
   const [stockData, setStockData] = useState([]);

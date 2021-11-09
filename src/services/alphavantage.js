@@ -15,7 +15,7 @@ https://pt.wikipedia.org/wiki/Pesquisa_bin%C3%A1ria*/
 const binarySearch = (arr, val) => {
   let start = 0, end = arr.length - 1;
   while (start <= end) {
-    const mid = Math.floor((start + end)/2);
+    const mid = Math.floor((start + end) / 2);
     if (arr[mid] === val) return mid;
     if (val < arr[mid]) end = mid - 1;
     else start = mid + 1
@@ -80,7 +80,7 @@ export const getDailyChartForSymbols = (symbols, start, end) => {
          ]
        }
       */
-      return {symbol, data: keys.slice(indexOfFirst, indexOfLast).map(date => ({date, price: parseFloat(data[date]["4. close"])}))};
+      return { symbol, data: keys.slice(indexOfFirst, indexOfLast).map(date => ({ date, price: parseFloat(data[date]["4. close"]) })) };
     })
   }
 

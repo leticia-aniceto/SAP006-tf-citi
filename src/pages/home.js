@@ -11,9 +11,9 @@ const Home = () => {
   /* state para controlar ação de comparação */
   const [compare, doCompare] = useState(0);
   /* state pra armazenar o intervalo do recorte dos dados históricos */
-  const [interval, setInterval] = useState({start: false, end: false});
+  const [interval, setInterval] = useState({ start: false, end: false });
   /* state para controlar todas as ações selecionadas, por default já vem o google */
-  const [selectedActions, setSelectedActions] = useState([{ symbol: "GOOGL", name: "Google" }]) 
+  const [selectedActions, setSelectedActions] = useState([{ symbol: "GOOGL", name: "Google" }])
   /* state para controlar ações disponíveis para serem selecionadas. o ideal seria fazer uma consulta pra API pra ter uma lista maior, 
    nao a toa as chaves do objeto são os simbolos das ações e os valores sao os nomes completos, isso permite a operação da linha 28 ser realizada em O(1)  */
   const [availableActions, setAvailableActions] = useState({ "GOOGL": "Google", "AAPL": "Apple", "AMZN": "Amazon", "TSLA": "Tesla", "FB": "Facebook", "NFLX": "Netflix" })
@@ -78,17 +78,17 @@ const Home = () => {
                 <a onClick={addAction} className="btn btn-primary btn-block mt-2">Adicionar ação</a>
                 <hr />
                 <div className="row">
-                <label >Intervalo</label>
+                  <label >Intervalo</label>
                   <div className="col">
                     {/*  a função onChangeInterval tem como o valor default para o parametro type "start", por isso ele é omitido aqui */}
                     <input onChange={(e) => onChangeInterval(e.target.value)} type="date" className="form-control" />
                   </div>
                   <div className="col">
-                    <input  onChange={(e) => onChangeInterval(e.target.value, 'end')} type="date" className="form-control" />
+                    <input onChange={(e) => onChangeInterval(e.target.value, 'end')} type="date" className="form-control" />
                   </div>
                 </div>
                 {/* o botao fica desabilitado se os intervalos nao forem selecionados atraves da propriedade disabled */}
-                <button onClick={(e) => {e.preventDefault(); doCompare(prev => prev + 1);}} disabled={!interval.start || !interval.end} className="btn btn-dark btn-block mt-2">Consultar</button>
+                <button onClick={(e) => { e.preventDefault(); doCompare(prev => prev + 1); }} disabled={!interval.start || !interval.end} className="btn btn-dark btn-block mt-2">Consultar</button>
 
               </form>
 
