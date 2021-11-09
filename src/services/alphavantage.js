@@ -156,6 +156,8 @@ export const getDailyChartForSymbolsTwo = (symbols, start, end) => {
   return Promise.all(symbols.map(symbol => getDailyChartForSymbol(symbol)));
 };
 
+
+
 // export const getMonthlyChartForSymbol = (symbol) => {
 //   return axiosInstance.get('', {
 //     params: {
