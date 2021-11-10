@@ -55,3 +55,7 @@ select {
 .cursor-pointer {
   cursor: pointer;
 }
+
+.btn-block-blue{
+  background-color: var(--blue);
+}
