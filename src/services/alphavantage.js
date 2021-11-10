@@ -8,6 +8,7 @@ const axiosInstance = axios.create({
   baseURL: process.env.REACT_APP_API_URL
 });
 
+
 /* função para busca binária em um array ordenado. ela olha para a metade de uma partição do array e caso 
 o meio nao for o elemento desejado (val), ela continuamente olha para o meio de uma das particoes restantes
 ela retorna o indice do elemento caso encontrado ou -1
