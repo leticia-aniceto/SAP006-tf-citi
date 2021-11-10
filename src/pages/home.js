@@ -63,7 +63,7 @@ const Home = () => {
 
           {/* <form className="row gy-2 gx-3 justify-content-center"> */}
           <div className="container-fluid">
-            <div class="row text-center">
+            <div className="row text-center">
               {selectedActions.map((item, index) => (
                 <div key={index} className="form-group col">
                   <label >Ação {index + 1}</label>
@@ -76,22 +76,22 @@ const Home = () => {
                 </div>
 
               ))}
-              <div class="form-group col">
+              <div className="form-group col">
                 <label>⠀</label>
                 <button disabled={selectedActions.length === 3} onClick={(e) => { e.preventDefault(); addAction(e); }} className="btn btn-primary btn-block btn-block-blue mt-2">Adicionar ação</button>
               </div>
             </div>
-            <div class="row mt-2 text-centerpr">
-              <div class="col-md-auto p-24">
-                <p class="v-c">Intervalo de tempo</p>
+            <div className="row mt-2 text-centerpr">
+              <div className="col-md-auto p-24">
+                <p className="v-c">Intervalo de tempo</p>
               </div>
-              <div class="form-group col">
+              <div className="form-group col">
                 <label>Início</label>
 
                 <input onChange={(e) => onChangeInterval(e.target.value)} type="date" className="form-control" />
               </div>
-              <div class="col-md-auto p-24">
-                <p class="v-c">a</p>
+              <div className="col-md-auto p-24">
+                <p className="v-c">a</p>
               </div>
               <div className="form-group col">
 
@@ -99,12 +99,12 @@ const Home = () => {
 
                 <input onChange={(e) => onChangeInterval(e.target.value, 'end')} type="date" className="form-control" />
               </div>
-              <div class="form-group col ">
+              <div className="form-group col ">
                 <label>⠀</label>
 
                 <button onClick={(e) => { e.preventDefault(); doCompare(prev => true); }} disabled={!interval.start || !interval.end} className="btn btn-dark btn-block">Fechamento diário</button>
               </div>
-              <div class="col">
+              <div className="col">
                 <label>⠀</label>
 
                 <button onClick={(e) => { e.preventDefault(); doCompareTwo(prev => true); }} disabled={!interval.start || !interval.end} className="btn btn-dark btn-block">Rentabilidade</button>
