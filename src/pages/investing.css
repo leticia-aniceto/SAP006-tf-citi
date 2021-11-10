@@ -1,0 +1,22 @@
+
+.profile-cards{
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.col-md-5{
+    margin: 05px;
+}
+
+.card {
+    border: 2px solid rgb(14, 14, 66,0.45);
+    border-radius: .25rem;
+    box-shadow: 0px 5.13419px 5.13419px rgba(0, 0, 0, 0.35);
+    text-align: center;
+    padding: 10px;
+}   
+
+.card-title {
+    font-weight:bold;
+    color: rgb(14, 14, 66);
+}

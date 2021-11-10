@@ -88,6 +88,17 @@ export const getDailyChartForSymbols = (symbols, start, end) => {
   return Promise.all(symbols.map(symbol => getDailyChartForSymbol(symbol)));
 };
 
+
+export const searchName = (searchUser) => {
+    return axiosInstance.get('', {
+        params:{
+            function: 'SYMBOL_SEARCH',
+            apikey: process.env.REACT_APP_API_KEY,
+            keywords: searchUser
+        }
+    })
+}
+
 export const getDailyChartForSymbolsTwo = (symbols, start, end) => {
   /* funcao interna auxiliar para processar os dados de um simbolo por vez, retorna uma promise
     outputsize por default é 'full' para pegar todos os registros de dados históricos e não só os últimos 100 pontos
@@ -155,6 +166,7 @@ export const getDailyChartForSymbolsTwo = (symbols, start, end) => {
   // Retorna uma promise que resolve em "paralelo" todas as promises da funcao auxiliar getDailyChartForSymbol para todos os simbolos inseridos pelo usuario
   return Promise.all(symbols.map(symbol => getDailyChartForSymbol(symbol)));
 };
+
 
 // export const getMonthlyChartForSymbol = (symbol) => {
 //   return axiosInstance.get('', {
