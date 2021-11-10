@@ -5,7 +5,7 @@ import Navbar from "../components/navbar";
 import Header from "../components/header";
 import '../style.css'
 import Chart from "./chart";
-import Rentability from "./rentability"
+import Rentability from "./rentability";
 
 
 const Home = () => {
@@ -121,6 +121,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+
     </>
 
   );

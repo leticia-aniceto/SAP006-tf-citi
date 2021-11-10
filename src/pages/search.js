@@ -5,9 +5,10 @@ import Navbar from "../components/navbar";
 import Header from "../components/header";
 import '../style.css'
 // import Chart from "./chart";
-import { searchName } from "../services/alphavantage.js"
+import { searchName } from "../services/alphavantage.js";
 
 const SearchPage = () => {
+
   const [cards, setCards] = useState([])
   const [searchValue, setSearchValue] = useState()
   const handleChange = e => {
