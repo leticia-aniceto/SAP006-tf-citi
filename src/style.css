@@ -44,9 +44,15 @@ select {
   margin: 8px 0 !important;
 }
 
+
 .flexBox {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
 }
+
+.cursor-pointer {
+  cursor: pointer;
+}
+

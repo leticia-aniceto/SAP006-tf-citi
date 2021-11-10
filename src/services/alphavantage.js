@@ -109,6 +109,16 @@ export const searchName = (searchUser) => {
   })
 }
 
+export const searchStock = (symbol) => {
+    return axiosInstance.get('', {
+        params:{
+            function: 'GLOBAL_QUOTE',
+            apikey: process.env.REACT_APP_API_KEY,
+            symbol: symbol
+        }
+    })
+}
+
 export const getDailyChartForSymbolsTwo = (symbols, start, end) => {
   /* funcao interna auxiliar para processar os dados de um simbolo por vez, retorna uma promise
     outputsize por default é 'full' para pegar todos os registros de dados históricos e não só os últimos 100 pontos

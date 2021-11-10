@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // import Button from '../components/button'
 import Navbar from "../components/navbar";
 import Header from "../components/header";
@@ -26,11 +26,11 @@ const SearchPage = () => {
       <div className="">
         <div className="container justify-content-center">
           <div className="title">
-            <h2>Empresas na bolsa de Nova York</h2>
-
+            <h2>Busca de empresas globais</h2>
           </div>
           {/* <form className="row gy-2 gx-3 justify-content-center"> */}
           <div className="row">
+
             <div className="col-5">
               <form>
                 <label>Digite o nome ou tickers da empresa</label>
@@ -49,13 +49,12 @@ const SearchPage = () => {
                   );
                 })}
               </ul>
-            </div>
 
+            </div>
           </div>
         </div>
       </div>
     </>
-
   );
 };
 
