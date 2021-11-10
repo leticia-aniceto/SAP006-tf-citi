@@ -34,3 +34,7 @@ mr-2 {
 select {
   margin: 5px 0 !important;
 }
+
+.cursor-pointer {
+  cursor: pointer;
+}
