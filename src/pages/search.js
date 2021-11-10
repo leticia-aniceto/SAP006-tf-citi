@@ -1,9 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
-// import Button from '../components/button'
 import Navbar from "../components/navbar";
 import Header from "../components/header";
 import "../style.css";
+import "./search.css";
 import { searchName, searchStock } from "../services/alphavantage.js";
 
 const SearchPage = () => {
@@ -37,6 +37,7 @@ const SearchPage = () => {
     setSearchValue("");
     setSearchResult([])
   };
+  
   return (
     <>
       <Header />
@@ -45,8 +46,8 @@ const SearchPage = () => {
         <div className="container justify-content-center">
           <div className="title">
             <h2>Busca de empresas globais</h2>
+            <h5 className="title">Acompanhe em tempo real todas as ações e seus valores</h5>
           </div>
-          {/* <form className="row gy-2 gx-3 justify-content-center"> */}
           <div className="row">
             <div className="col-12">
               <input
@@ -71,23 +72,31 @@ const SearchPage = () => {
                 })}
               </ul>
               <hr/>
-              <div>
+              <section>
                 {cards.map((item) => {
                   return (
                     <div
-                      className="card"
+                      className="card-ticker"
                       key={item["01. symbol"]}
                     >
-                      <div className="card-body">
-                        <h5 className="card-title">{item["01. symbol"]}</h5>
-                        <p className="card-text">
-                          Abertura $ {item["02. open"]} / Último fechamento $ {item["05. price"]}
+                      <div className="card-name">
+                        <h4 className="card-title">{item["01. symbol"]}</h4>
+                      </div>
+
+                      <div className="card-data">
+                        <p className="open">
+                          <strong>Abertura</strong> <br />
+                          $ {item["02. open"]}
+                        </p>
+                        <p className="close">
+                          <strong>Último fechamento</strong> <br />
+                          $ {item["05. price"]}
                         </p>
                       </div>
                     </div>
                   );
                 })}
-              </div>
+              </section>
             </div>
           </div>
         </div>
