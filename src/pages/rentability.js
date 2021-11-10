@@ -2,21 +2,18 @@ import { useEffect, useState } from "react";
 import { CanvasJSChart } from "canvasjs-react-charts";
 import { getDailyChartForSymbolsTwo } from "../services/alphavantage.js";
 
-/* props desestruturadas */
 const Rentability = ({ symbols, startDate, endDate, compareTwo }) => {
 
   function logReturn(precoAtual, precoAnterior) {
-    const result = Math.log(precoAtual / (precoAnterior -1))
+    const result = Math.log(precoAtual / (precoAnterior - 1))
     return result * 100
-   }
+  }
 
   const [stockData, setStockData] = useState([]);
 
   useEffect(() => {
     const fetchStockData = async (symbols, startDate, endDate) => {
       const stockData = await getDailyChartForSymbolsTwo(symbols, startDate, endDate);
-
-      console.log(stockData)
       setStockData(stockData);
     };
     if (symbols && startDate && endDate) fetchStockData(symbols, startDate, endDate);
@@ -27,7 +24,7 @@ const Rentability = ({ symbols, startDate, endDate, compareTwo }) => {
     <CanvasJSChart
       options={{
         title: {
-          text: "Fechamento diário",
+          text: "Rentabilidade",
           fontFamily: "tahoma",
           fontSize: 20
 
@@ -42,8 +39,8 @@ const Rentability = ({ symbols, startDate, endDate, compareTwo }) => {
           }
         },
         axisY: {
-          title: "Valor",
-          prefix: "$",
+          title: "Rentabilidade",
+          prefix: "%",
           crosshair: {
             enabled: true,
             snapToDataPoint: true,
@@ -60,23 +57,23 @@ const Rentability = ({ symbols, startDate, endDate, compareTwo }) => {
           horizontalAlign: "center",
 
           itemclick: (e) => {
-            if (e.dataSeries.visible) e.dataSeries.visible = false;
+            if (e.dataSeries.visible === undefined || e.dataSeries.visible) e.dataSeries.visible = false;
             else e.dataSeries.visible = true;
             e.chart.render();
           }
         },
-    
+
         data: stockData.map((action) => ({
           type: "line",
-          name: action.symbol, 
+          name: action.symbol,
           markerType: "circle",
           markerSize: 4,
           showInLegend: true,
           markerBorderThickness: 0,
-          dataPoints: action.data.map((dataPoint) => ({
+          dataPoints: action.data?.map((dataPoint) => ({
             label: new Date(dataPoint.date),
             x: new Date(dataPoint.date),
-            y:logReturn(dataPoint.price, dataPoint.priceopen)
+            y: logReturn(dataPoint.price, dataPoint.priceopen)
           }))
         }))
 
@@ -84,6 +81,5 @@ const Rentability = ({ symbols, startDate, endDate, compareTwo }) => {
     />
   );
 };
-
 
 export default Rentability;
