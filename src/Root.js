@@ -14,11 +14,8 @@ const Root = () => {
         <Route path='/' exact component={Home} />
         <Route path='/about' exact component={About} />
         <Route path='/investing' exact component={Investing} />
-<<<<<<< HEAD
         <Route path='/alltickers' exact component={Tickers} />
-=======
         <Route path='/search' exact component={SearchPage} />
->>>>>>> 5b57da772627ed5c51e88fa09c3ac19ec33812a8
         <Route component={NotFound} />
       </Switch>
     </BrowserRouter>
