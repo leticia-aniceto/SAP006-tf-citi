@@ -103,7 +103,7 @@ export const searchName = (searchUser) => {
   return axiosInstance.get('', {
     params: {
       function: 'SYMBOL_SEARCH',
-      apikey: process.env.REACT_APP_API_KEY,
+      apikey: 'T76M1J47E0ZCANSU',
       keywords: searchUser
     }
   })
@@ -113,7 +113,7 @@ export const searchStock = (symbol) => {
   return axiosInstance.get('', {
     params: {
       function: 'GLOBAL_QUOTE',
-      apikey: process.env.REACT_APP_API_KEY,
+      apikey: 'T76M1J47E0ZCANSU',
       symbol: symbol
     }
   })
@@ -128,7 +128,7 @@ export const getDailyChartForSymbolsTwo = (symbols, start, end) => {
         function: 'TIME_SERIES_DAILY',
         symbol,
         outputsize,
-        apikey: process.env.REACT_APP_API_KEY
+        apikey: 'T76M1J47E0ZCANSU'
       }
     }).then(response => {
       // recupera atributo Time Series (Daily), que contém o array da série temporal de registros históricos
