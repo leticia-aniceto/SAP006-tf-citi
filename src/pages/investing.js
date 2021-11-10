@@ -12,7 +12,7 @@ const Investing = () => {
       <Banner />
       <div className="text-center">
         <div className="container-fluid justify-content-center">
-          <h2 className="title">Espaço para investimentos</h2>
+          <h2 className="title">Aprenda sobre os termos mais utilizados no mercado financeiro</h2>
           <section className="profile-cards">    
               <div className="col-md-5">
                 <div className="card">

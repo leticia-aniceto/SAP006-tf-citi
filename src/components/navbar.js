@@ -14,7 +14,7 @@ function Navbar() {
           <ul className="navbar-nav">
 
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/">Compare Tickers</a>
+              <a className="nav-link active" aria-current="page" href="/">Compare ações</a>
             </li>
             <li className="nav-item">
               <a className="nav-link active" aria-current="page" href="/search">Busque empresas</a>
