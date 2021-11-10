@@ -3,7 +3,7 @@ import { useState } from "react";
 // import Button from '../components/button';
 import Navbar from "../components/navbar";
 import Header from "../components/header";
-import '../style.css'
+import '../style.css';
 import Chart from "./chart";
 import Rentability from "./rentability"
 
@@ -78,10 +78,10 @@ const Home = () => {
               ))}
               <div class="form-group col">
                 <label>⠀</label>
-                <button disabled={selectedActions.length === 3} onClick={(e) => { e.preventDefault(); addAction(e); }} className="btn btn-primary btn-block mt-2">Adicionar ação</button>
+                <button disabled={selectedActions.length === 3} onClick={(e) => { e.preventDefault(); addAction(e); }} className="btn btn-primary btn-block btn-block-blue mt-2">Adicionar ação</button>
               </div>
             </div>
-            <div class="row mt-2 text-center">
+            <div class="row mt-2 text-centerpr">
               <div class="col-md-auto p-24">
                 <p class="v-c">Intervalo de tempo</p>
               </div>
