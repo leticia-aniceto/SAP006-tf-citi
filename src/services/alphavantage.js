@@ -1,11 +1,21 @@
 import axios from 'axios';
+import { setupCache } from 'axios-cache-adapter';
 import moment from 'moment';
 
 /* usa o arquivo .env para armazenar o conteudo sensivel da aplicação, elas são acessíveis através do process.env
  https://create-react-app.dev/docs/adding-custom-environment-variables/ */
 
+const cache = setupCache({
+  maxAge: 15 * 60 * 1000,
+  debug: true,
+  exclude: {
+    query: false,
+  }
+})
+
 const axiosInstance = axios.create({
-  baseURL: process.env.REACT_APP_API_URL
+  baseURL: process.env.REACT_APP_API_URL,
+  adapter: cache.adapter
 });
 
 /* função para busca binária em um array ordenado. ela olha para a metade de uma partição do array e caso 
@@ -90,15 +100,24 @@ export const getDailyChartForSymbols = (symbols, start, end) => {
 
 
 export const searchName = (searchUser) => {
-    return axiosInstance.get('', {
-        params:{
-            function: 'SYMBOL_SEARCH',
-            apikey: process.env.REACT_APP_API_KEY,
-            keywords: searchUser
-        }
-    })
+  return axiosInstance.get('', {
+    params: {
+      function: 'SYMBOL_SEARCH',
+      apikey: process.env.REACT_APP_API_KEY,
+      keywords: searchUser
+    }
+  })
 }
 
+export const searchStock = (symbol) => {
+  return axiosInstance.get('', {
+    params: {
+      function: 'GLOBAL_QUOTE',
+      apikey: process.env.REACT_APP_API_KEY,
+      symbol: symbol
+    }
+  })
+}
 export const getDailyChartForSymbolsTwo = (symbols, start, end) => {
   /* funcao interna auxiliar para processar os dados de um simbolo por vez, retorna uma promise
     outputsize por default é 'full' para pegar todos os registros de dados históricos e não só os últimos 100 pontos
@@ -114,6 +133,7 @@ export const getDailyChartForSymbolsTwo = (symbols, start, end) => {
     }).then(response => {
       // recupera atributo Time Series (Daily), que contém o array da série temporal de registros históricos
       const data = response.data["Time Series (Daily)"];
+      console.log(data);
       // se por qualquer razao data for falsy retorna um array vazio
       if (!data) return [];
 
@@ -141,6 +161,7 @@ export const getDailyChartForSymbolsTwo = (symbols, start, end) => {
       const indexOfFirst = binarySearch(keys, startDate.format('YYYY-MM-DD'));
       const indexOfLast = binarySearch(keys, endDate.format('YYYY-MM-DD'));
 
+
       /* retorna um objeto contendo o simbolo e o recorte dos dados. o preço é definido como o valor de fechamento retornado pela API
        ex. {
          symbol: 'GOOGL',
@@ -156,10 +177,12 @@ export const getDailyChartForSymbolsTwo = (symbols, start, end) => {
          ]
        }
       */
-      // eslint-disable-next-line no-sequences
-  
-      return { symbol, data: keys.slice(indexOfFirst, indexOfLast).map(date => ({ date, price: parseFloat(data[date]["4. close"]), priceopen:parseFloat(data[date]["1. open"]), 
-     })) };
+
+      return {
+        symbol, data: keys.slice(indexOfFirst, indexOfLast).map(date => ({
+          date, price: parseFloat(data[date]["4. close"]), priceopen: parseFloat(data[date]["1. open"]),
+        }))
+      };
     })
   }
 
