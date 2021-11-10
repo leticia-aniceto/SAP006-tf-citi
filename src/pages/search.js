@@ -4,22 +4,22 @@ import { useState } from "react";
 import Navbar from "../components/navbar";
 import Header from "../components/header";
 import '../style.css'
-import Chart from "./chart";
-import {searchName} from "../services/alphavantage.js"
+// import Chart from "./chart";
+import { searchName } from "../services/alphavantage.js"
 
-const SearchPage = () =>{
-    const [cards, setCards] = useState([])
-    const [searchValue, setSearchValue] = useState() 
-    const handleChange = e => {
-        setSearchValue(e.target.value)
-    }
-    const searchSymbol = (e) => {
-        e.preventDefault()
-        searchName(searchValue).then((result) => {
-            setCards(result.data['bestMatches'])
-        })
-    }
-return (
+const SearchPage = () => {
+  const [cards, setCards] = useState([])
+  const [searchValue, setSearchValue] = useState()
+  const handleChange = e => {
+    setSearchValue(e.target.value)
+  }
+  const searchSymbol = (e) => {
+    e.preventDefault()
+    searchName(searchValue).then((result) => {
+      setCards(result.data['bestMatches'])
+    })
+  }
+  return (
     <>
       <Header />
       <Navbar />
@@ -34,21 +34,21 @@ return (
             <div className="col-5">
               <form>
                 <label>Digite o nome ou tickers da empresa</label>
-                <input type="text" onChange={handleChange}/>
+                <input type="text" onChange={handleChange} />
                 {/* o botao fica desabilitado se os intervalos nao forem selecionados atraves da propriedade disabled */}
-                <button onClick={searchSymbol} className="btn btn-dark btn-block mt-2">Consultar</button> 
+                <button onClick={searchSymbol} className="btn btn-dark btn-block mt-2">Consultar</button>
 
               </form>
               <ul className="cards">
-              {cards.map((item) => {
+                {cards.map((item) => {
                   console.log(item)
-                return (
-                  <>
-                    {item['2. name']}
-                  </>
-                );
-              })}
-            </ul>
+                  return (
+                    <>
+                      {item['2. name']}
+                    </>
+                  );
+                })}
+              </ul>
             </div>
 
           </div>

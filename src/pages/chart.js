@@ -14,8 +14,10 @@ const Chart = ({ symbols, startDate, endDate, compare }) => {
   useEffect(() => {
     const fetchStockData = async (symbols, startDate, endDate) => {
       const stockData = await getDailyChartForSymbols(symbols, startDate, endDate);
+      console.log(stockData)
       setStockData(stockData);
     };
+
     if (symbols && startDate && endDate) fetchStockData(symbols, startDate, endDate);
   }, [compare]);
 
@@ -67,7 +69,7 @@ const Chart = ({ symbols, startDate, endDate, compare }) => {
           horizontalAlign: "center",
           // inverte a visibilidade das linhas quando se clica nos itens da legenda
           itemclick: (e) => {
-            if (e.dataSeries.visible) e.dataSeries.visible = false;
+            if (e.dataSeries.visible === undefined || e.dataSeries.visible) e.dataSeries.visible = false;
             else e.dataSeries.visible = true;
             e.chart.render();
           }
@@ -75,12 +77,12 @@ const Chart = ({ symbols, startDate, endDate, compare }) => {
         /* processa dados obtidos da api para mostrar as linhas relativas a cada ação selecionada*/
         data: stockData.map((action) => ({
           type: "line",
-          name: action.symbol, // simbolo da ação para lgenda
+          name: action.symbol, // simbolo da ação para legenda
           markerType: "circle",
           markerSize: 4,
           showInLegend: true,
           markerBorderThickness: 0,
-          dataPoints: action.data.map((dataPoint) => ({
+          dataPoints: action.data?.map((dataPoint) => ({
             label: new Date(dataPoint.date),
             x: new Date(dataPoint.date),
             y: dataPoint.price
