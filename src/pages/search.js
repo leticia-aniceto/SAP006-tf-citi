@@ -1,25 +1,42 @@
 import React from "react";
 import { useState, useEffect } from "react";
 // import Button from '../components/button'
-
 import Navbar from "../components/navbar";
 import Header from "../components/header";
-import '../style.css'
-// import Chart from "./chart";
-import { searchName } from "../services/alphavantage.js"
+import "../style.css";
+import { searchName, searchStock } from "../services/alphavantage.js";
 
 const SearchPage = () => {
-  const [cards, setCards] = useState([])
-  const [searchValue, setSearchValue] = useState()
-  const handleChange = e => {
-    setSearchValue(e.target.value)
-  }
-  const searchSymbol = (e) => {
-    e.preventDefault()
-    searchName(searchValue).then((result) => {
-      setCards(result.data['bestMatches'])
-    })
-  }
+  const [searchValue, setSearchValue] = useState("");
+  const [searchResult, setSearchResult] = useState([]);
+  const [cards, setCards] = useState([]);
+
+  const handleChange = (e) => {
+    setSearchValue(e.target.value);
+  };
+
+  useEffect(() => {
+    if (searchValue.length > 2) {
+      searchName(searchValue).then((result) => {
+        if (result.data["bestMatches"]) {
+          setSearchResult(result.data["bestMatches"].slice(0, 3));
+        }
+      });
+    } else {
+      if (searchResult.length > 0) setSearchResult([])
+    }
+  }, [searchValue]);
+
+  const createCard = (e) => {
+    searchStock(e.target.getAttribute("symbol")).then((result) => {
+      if (result.status === 200) {
+        let stock = result.data["Global Quote"];
+        setCards((cards) => [...cards, stock]);
+      }
+    });
+    setSearchValue("");
+    setSearchResult([])
+  };
   return (
     <>
       <Header />
@@ -31,26 +48,46 @@ const SearchPage = () => {
           </div>
           {/* <form className="row gy-2 gx-3 justify-content-center"> */}
           <div className="row">
-
-            <div className="col-5">
-              <form>
-                <label>Digite o nome ou tickers da empresa</label>
-                <input type="text" onChange={handleChange} />
-                {/* o botao fica desabilitado se os intervalos nao forem selecionados atraves da propriedade disabled */}
-                <button onClick={searchSymbol} className="btn btn-dark btn-block mt-2">Consultar</button>
-
-              </form>
-              <ul className="cards">
-                {cards.map((item) => {
-                  console.log(item)
+            <div className="col-12">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Digite o nome da empresa"
+                onChange={handleChange}
+                value={searchValue}
+              />
+              <ul className="list-group">
+                {searchResult.map((item) => {
                   return (
-                    <>
-                      {item['2. name']}
-                    </>
+                    <li
+                      key={item["1. symbol"]}
+                      onClick={createCard}
+                      symbol={item["1. symbol"]}
+                      className="list-group-item cursor-pointer"
+                    >
+                      {item["1. symbol"] + " - " + item["2. name"]}
+                    </li>
                   );
                 })}
               </ul>
-
+              <hr/>
+              <div>
+                {cards.map((item) => {
+                  return (
+                    <div
+                      className="card"
+                      key={item["01. symbol"]}
+                    >
+                      <div className="card-body">
+                        <h5 className="card-title">{item["01. symbol"]}</h5>
+                        <p className="card-text">
+                          Abertura $ {item["02. open"]} / Último fechamento $ {item["05. price"]}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
