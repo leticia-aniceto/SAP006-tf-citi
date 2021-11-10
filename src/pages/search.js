@@ -37,7 +37,7 @@ const SearchPage = () => {
     setSearchValue("");
     setSearchResult([])
   };
-
+  
   return (
     <>
       <Header />

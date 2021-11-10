@@ -31,6 +31,31 @@ mr-2 {
   width: 100%;
 }
 
+.p-24 {
+  padding-top: 28px;
+}
+
+.v-c {
+  margin-top: auto !important;
+  margin-bottom: auto !important;
+}
+
 select {
-  margin: 5px 0 !important;
+  margin: 8px 0 !important;
+}
+
+
+.flexBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.btn-block-blue{
+  background-color: var(--blue);
 }
