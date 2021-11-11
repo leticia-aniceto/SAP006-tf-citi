@@ -5,6 +5,7 @@ import Header from "../components/header";
 import "../style.css";
 import "./search.css";
 import { searchName, searchStock } from "../services/alphavantage.js";
+import Banner from "../components/banner";
 
 const SearchPage = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -37,11 +38,12 @@ const SearchPage = () => {
     setSearchValue("");
     setSearchResult([])
   };
-  
+
   return (
     <>
       <Header />
       <Navbar />
+      <Banner />
       <div className="">
         <div className="container justify-content-center">
           <div className="title">
