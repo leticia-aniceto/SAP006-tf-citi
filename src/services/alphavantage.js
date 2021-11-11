@@ -43,7 +43,7 @@ export const getDailyChartForSymbols = (symbols, start, end) => {
         function: 'TIME_SERIES_DAILY',
         symbol,
         outputsize,
-        apikey: 'T76M1J47E0ZCANSU'
+        apikey: '8WBEDC9Z57D44SFK'
       }
     }).then(response => {
       // recupera atributo Time Series (Daily), que contém o array da série temporal de registros históricos
@@ -103,7 +103,7 @@ export const searchName = (searchUser) => {
   return axiosInstance.get('', {
     params: {
       function: 'SYMBOL_SEARCH',
-      apikey: 'T76M1J47E0ZCANSU',
+      apikey: '8WBEDC9Z57D44SFK',
       keywords: searchUser
     }
   })
@@ -113,7 +113,7 @@ export const searchStock = (symbol) => {
   return axiosInstance.get('', {
     params: {
       function: 'GLOBAL_QUOTE',
-      apikey: 'T76M1J47E0ZCANSU',
+      apikey: '8WBEDC9Z57D44SFK',
       symbol: symbol
     }
   })
@@ -128,7 +128,7 @@ export const getDailyChartForSymbolsTwo = (symbols, start, end) => {
         function: 'TIME_SERIES_DAILY',
         symbol,
         outputsize,
-        apikey: 'T76M1J47E0ZCANSU'
+        apikey: '8WBEDC9Z57D44SFK'
       }
     }).then(response => {
       // recupera atributo Time Series (Daily), que contém o array da série temporal de registros históricos
