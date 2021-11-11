@@ -1,33 +1,33 @@
 form.row.gy-2.gx-3.justify-content-center {
-    display: flex;
-    width: 80%;
-    justify-content: flex-end;
-    color: #282828;
+  display: flex;
+  width: 80%;
+  justify-content: flex-end;
+  color: #282828;
 }
 
 .col-auto {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    width: inherit;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: inherit;
 }
 
 .actions-bar {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 }
 
 input[type="date"] {
-    padding: 2vh 2vh;
-    font-size: 1.1rem;
-    border: 0.75573px solid #E5E5E5;
-    box-shadow: 0px 4.43175px 4.43175px rgba(0, 0, 0, 0.1);
-    border-radius: 50.382px;
+  padding: 2vh 2vh;
+  font-size: 1.1rem;
+  border: 0.75573px solid #e5e5e5;
+  box-shadow: 0px 4.43175px 4.43175px rgba(0, 0, 0, 0.1);
+  border-radius: 50.382px;
 }
 
 .text-date {
-    font-weight: bold;
+  font-weight: bold;
 }
