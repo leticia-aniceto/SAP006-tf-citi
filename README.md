@@ -5,15 +5,16 @@
 
 
 ## 📑 Índice
-- [1. Talent Fest](#1-TalentFest)
-- [2. Citi Bank](#2-CitiBank)
-- [3. Desafio](#3-Desafio)
-- [4. A Aplicação](#4-Aplicação)
-- [5. Planejamento](#4-Planejamento)
-- [6. Protótipo](#4-Protótipo)
-- [7. Interface Final](#6-InterfaceFinal)
-- [8. Tecnologias utilizadas](#5-Tecnologiasutilizadas)
-- [9. Desenvolvedoras](#6-Desenvolvedoras)
+- [📑 Índice](#-índice)
+- [1. Talent Fest 🎉](#1-talent-fest-)
+- [2. Citi Bank 💵](#2-citi-bank-)
+- [3. Desafio 🎯](#3-desafio-)
+- [4. A Aplicação 💡](#4-a-aplicação-)
+- [5. Planejamento  📆](#5-planejamento--)
+- [6. Protótipo  🖥️ 📱](#6-protótipo--️-)
+- [7. Interface Final 🎨](#7-interface-final-)
+- [8. Tecnologias ⚙️](#8-tecnologias-️)
+- [9. Desenvolvedoras 👩‍💻](#9-desenvolvedoras-)
 
 
 ## 1. Talent Fest 🎉
@@ -81,7 +82,7 @@ Utilizamos as seguintes ferramentas:
 ## 9. Desenvolvedoras 👩‍💻 
 <div align='center'>
  
-| <img alt='Aline Andrade' src='./src/img/readme/AlineAndrade.jpeg' width="100px"></img> | <img alt='Letícia Aniceto' src='./src/img/readme/LeticiaAniceto.png' width="100px"></img> | <img alt='Lyandra Saito' src='./src/img/readme/LyandraSaito.jpeg' width="100px"></img> | <img alt='Monique Tenório' src='./src/img/readme/MoniqueTenorio.jpeg' width="100px"></img>| <img alt='Paloma Queiroz' src='./src/img/readme/paloma.jpeg' width="100px"></img> | <img alt='Rafaela Cugini' src='./src/img/readme/RafaelaCugini.JPG' width="100px"></img>   	|
+| <img alt='Aline Andrade' src='https://avatars.githubusercontent.com/u/83618462?v=4' width="100px"></img> | <img alt='Letícia Aniceto' src='https://avatars.githubusercontent.com/u/70327566?v=4' width="100px"></img> | <img alt='Lyandra Saito' src='https://avatars.githubusercontent.com/u/17890206?v=4' width="100px"></img> | <img alt='Monique Tenório' src='https://avatars.githubusercontent.com/u/83084670?v=4' width="100px"></img>| <img alt='Paloma Queiroz' src='https://avatars.githubusercontent.com/u/70237329?v=4' width="100px"></img> | <img alt='Rafaela Cugini' src='https://avatars.githubusercontent.com/u/72530170?v=4' width="100px"></img>   	|
 |:-----------------:	|:-----------------:	|:------------------:	|:-----------------:	|:-----------------:	|:-----------------:	|
-|<a href='https://github.com/AlineFAndrade'><img alt='GitHub' src='./src/img/readme/giticon.png'></img></a> <a href='https://www.linkedin.com/in/aline-andrade-/'><img alt='LinkedIn' src='./src/img/readme/linkedinicon.jpg' width='32px'></img></a> | <a href='https://github.com/leticia-aniceto'><img alt='GitHub' src='./src/img/readme/giticon.png'></img></a> <a href='https://www.linkedin.com/in/leticia-braga-aniceto/'><img alt='LinkedIn' src='./src/img/readme/linkedinicon.jpg' width='32px'></img></a> | <a href='https://github.com/lyandrasaito'><img alt='GitHub' src='./src/img/readme/giticon.png'></img></a> <a href='https://www.linkedin.com/in/lyandra-saito/'><img alt='LinkedIn' src='./src/img/readme/linkedinicon.jpg' width='32px'></img></a> | <a href='https://github.com/tenorionique'><img alt='GitHub' src='./src/img/readme/giticon.png'></img></a> <a href='https://www.linkedin.com/in/monique-doretto/'><img alt='LinkedIn' src='./src/img/readme/linkedinicon.jpg' width='32px'></img></a> | <a href='https://github.com/palomacqueiroz'><img alt='GitHub' src='./src/img/readme/giticon.png'></img></a> <a href='https://www.linkedin.com/in/palomac-queiroz/'><img alt='LinkedIn' src='./src/img/readme/linkedinicon.jpg' width='32px'></img></a> | <a href='https://github.com/RafaelaCugini'><img alt='GitHub' src='./src/img/readme/giticon.png'></img></a> <a href='https://www.linkedin.com/in/rafaela-cugini-1002a225/'><img alt='LinkedIn' src='./src/img/readme/linkedinicon.jpg' width='32px'></img></a>|
+|<a href='https://github.com/AlineFAndrade'><img alt='GitHub - Aline' src='https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white'></img></a> <a href='https://www.linkedin.com/in/AlineFAndrade/'><img alt='LinkedIn - Aline' src='https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white'></img></a> | <a href='https://github.com/leticia-aniceto'><img alt='GitHub - Leticia' src='https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white'></img></a> <a href='https://www.linkedin.com/in/leticia-braga-aniceto/'><img alt='LinkedIn - Leticia' src='https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white'></img></a> | <a href='https://github.com/lyandrasaito'><img alt='GitHub - Lyandra' src='https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white'></img></a> <a href='https://www.linkedin.com/in/lyandrasaito/'><img alt='LinkedIn - Lyandra' src='https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white'></img></a> | <a href='https://github.com/tenorionique'><img alt='GitHub - Monique' src='https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white'></img></a> <a href='https://www.linkedin.com/in/tenorionique/'><img alt='LinkedIn - Monique' src='https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white'></img></a> | <a href='https://github.com/palomacqueiroz'><img alt='GitHub - Paloma' src='https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white'></img></a> <a href='https://www.linkedin.com/in/palomac-queiroz/'><img alt='LinkedIn - Paloma' src='https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white'></img></a> | <a href='https://github.com/RafaelaCugini'><img alt='GitHub - Rafaela' src='https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white'></img></a> <a href='https://www.linkedin.com/in/RafaelaCugini/'><img alt='LinkedIn - Monique' src='https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white'></img></a> |
 </div>
