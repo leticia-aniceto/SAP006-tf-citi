@@ -36,14 +36,3 @@
     padding: 1vh;
     margin-bottom: 0;
 }
-
-.growth {
-    font-size: 4em;
-    color: #41C19F;
-}
-
-.down {
-    font-size: 4em;
-    transform: rotateX(180deg);
-    color: #EF2B49;
-}

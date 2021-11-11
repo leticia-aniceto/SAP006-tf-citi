@@ -1,11 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Icon } from '@iconify/react';
 import Navbar from "../components/navbar";
 import Header from "../components/header";
 import "../style.css";
 import "./search.css";
 import { searchName, searchStock } from "../services/alphavantage.js";
+import Banner from "../components/banner";
 
 const SearchPage = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -43,6 +43,7 @@ const SearchPage = () => {
     <>
       <Header />
       <Navbar />
+      <Banner />
       <div className="">
         <div className="container justify-content-center">
           <div className="title">
@@ -72,7 +73,7 @@ const SearchPage = () => {
                   );
                 })}
               </ul>
-              <hr/>
+              <hr />
               <section>
                 {cards.map((item) => {
                   return (
