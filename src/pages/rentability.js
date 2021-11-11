@@ -19,7 +19,6 @@ const Rentability = ({ symbols, startDate, endDate, compareTwo }) => {
     if (symbols && startDate && endDate) fetchStockData(symbols, startDate, endDate);
   }, [compareTwo]);
 
-
   return (
     <CanvasJSChart
       options={{

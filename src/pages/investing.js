@@ -48,7 +48,7 @@ const Investing = () => {
             <div className="col-md-5">
               <div className="card">
                 <h5 className="card-title">Derivativos</h5>
-                <h6 className="card-subtitle mb-2 text-muted">O que é Derivativos?</h6>
+                <h6 className="card-subtitle mb-2 text-muted">O que são Derivativos?</h6>
                 <p className="card-text">Derivativos são contratos que derivam a maior parte de seu valor de um ativo subjacente, taxa
                   de referência ou índice. O ativo subjacente pode ser físico (café, ouro, etc.) ou financeiro
                   (ações, taxas de juros, etc.), negociado no mercado à vista ou não (é possível construir um
@@ -66,5 +66,3 @@ const Investing = () => {
 };
 
 export default Investing;
-
-
