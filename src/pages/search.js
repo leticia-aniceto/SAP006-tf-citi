@@ -71,7 +71,6 @@ const SearchPage = () => {
                   );
                 })}
               </ul>
-              <hr/>
               <section>
                 {cards.map((item) => {
                   return (
