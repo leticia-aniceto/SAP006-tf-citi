@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap");
 * {
-  --blue: #004DBE;
-  --gray: #EDF3F8;
-  font-family: 'Lato', sans-serif;
+  --blue: #004dbe;
+  --gray: #edf3f8;
+  font-family: "Lato", sans-serif;
 }
 
 select {
@@ -15,4 +15,55 @@ select {
 
 .gray {
   background-color: var(--gray);
+}
+
+mr-2 {
+  margin-right: 10px !important;
+}
+
+.title {
+  text-align: center;
+  font-weight: bold;
+  margin: 40px 0px;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.p-24 {
+  padding-top: 28px;
+}
+
+.v-c {
+  margin-top: auto !important;
+  margin-bottom: auto !important;
+}
+
+select {
+  margin: 8px 0 !important;
+}
+
+.flexBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.btn-block-blue {
+  background-color: var(--blue);
+}
+
+@media (min-width: 320px) and (max-width: 599px) {
+  .flexBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 }

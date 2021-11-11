@@ -1,61 +1,81 @@
 nav.navbar.navbar-expand-lg.blue {
-    padding: 1vw 0;
+  padding: 1vw 0;
 }
 
 .navbar-nav {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    justify-content: space-evenly;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-evenly;
 }
 
 nav.navbar.navbar-expand-lg.gray.navbar-light {
-    margin: 0 10vh;
-    border-radius: 0 0 15px 15px;
-    color: #53565A;
-    font-weight: bold;
-    font-size: 1.2rem;
+  margin: 0 10vh;
+  border-radius: 0 0 15px 15px;
+  color: #53565a;
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 
 .container-banner {
-    background-image: url(../img/banner.png);
-    background-color: transparent;
-    background-size: cover;
-    background-position-y: center;
-    opacity: 0.85;
-    color: #0B1941;
-    height: 10vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 1vw 0 2vw 0;
+  background-image: url(../img/banner.png);
+  background-color: transparent;
+  background-size: cover;
+  background-position-y: center;
+  opacity: 0.85;
+  color: #0b1941;
+  height: 10vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1vw 0 2vw 0;
 }
 
 .text-banner {
-    font-weight: 700;
+  font-weight: 700;
 }
 
 .searchBar-form {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .searchBar-input {
-    margin: 2vw;
-    padding: 2vh 4vh;
-    width: 34vw;
-    background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%221em%22%20height%3D%221em%22%20preserveAspectRatio%3D%22xMidYMid%20meet%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23444%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%3E%3Ccircle%20cx%3D%2214%22%20cy%3D%2214%22%20r%3D%2212%22%2F%3E%3Cpath%20d%3D%22M23%2023l7%207%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
-    background-repeat: no-repeat;
-    background-position-y: center;
-    background-position-x: 30vw;
-    background-size: 30px;
-    border: 0.740241px solid #E5E5E5;
-    box-shadow: 0px 4.34092px 4.34092px rgb(0 0 0 / 10%);
-    border-radius: 49.3494px;
+  margin: 2vw;
+  padding: 2vh 4vh;
+  width: 34vw;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%221em%22%20height%3D%221em%22%20preserveAspectRatio%3D%22xMidYMid%20meet%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23444%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%3E%3Ccircle%20cx%3D%2214%22%20cy%3D%2214%22%20r%3D%2212%22%2F%3E%3Cpath%20d%3D%22M23%2023l7%207%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 30vw;
+  background-size: 30px;
+  border: 0.740241px solid #e5e5e5;
+  box-shadow: 0px 4.34092px 4.34092px rgb(0 0 0 / 10%);
+  border-radius: 49.3494px;
 }
 
 .search {
-    font-size: 30px;
+  font-size: 30px;
+}
+
+@media (min-width: 320px) and (max-width: 599px) {
+  .container-banner {
+    height: 33vw;
+  }
+
+  .text-banner {
+    font-weight: 700;
+    text-align: center;
+    color: #dadbdd;
+  }
+
+  .title {
+    text-align: center;
+    font-weight: lighter;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 14px 0;
+    font-size: 1rem;
+  }
 }

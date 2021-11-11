@@ -1,27 +1,32 @@
 import { useEffect, useState } from "react";
 import { CanvasJSChart } from "canvasjs-react-charts";
-import { getDailyChartForSymbols } from "../services/alphavantage.js";
+import { getDailyChartForSymbolsTwo } from "../services/alphavantage.js";
 
-const Chart = ({ symbols, startDate, endDate, compare }) => {
+const Rentability = ({ symbols, startDate, endDate, compareTwo }) => {
+
+  function logReturn(precoAtual, precoAnterior) {
+    const result = Math.log(precoAtual / (precoAnterior - 1))
+    return result * 100
+  }
+
   const [stockData, setStockData] = useState([]);
 
   useEffect(() => {
     const fetchStockData = async (symbols, startDate, endDate) => {
-      const stockData = await getDailyChartForSymbols(symbols, startDate, endDate);
-      console.log(stockData)
+      const stockData = await getDailyChartForSymbolsTwo(symbols, startDate, endDate);
       setStockData(stockData);
     };
-
     if (symbols && startDate && endDate) fetchStockData(symbols, startDate, endDate);
-  }, [compare]);
+  }, [compareTwo]);
 
   return (
     <CanvasJSChart
       options={{
         title: {
-          text: "Fechamento diário",
+          text: "Rentabilidade",
           fontFamily: "tahoma",
           fontSize: 20
+
         },
         height: 400,
         axisX: {
@@ -33,8 +38,8 @@ const Chart = ({ symbols, startDate, endDate, compare }) => {
           }
         },
         axisY: {
-          title: "Valor",
-          prefix: "$",
+          title: "Rentabilidade",
+          prefix: "%",
           crosshair: {
             enabled: true,
             snapToDataPoint: true,
@@ -49,15 +54,17 @@ const Chart = ({ symbols, startDate, endDate, compare }) => {
           cursor: "pointer",
           verticalAlign: "top",
           horizontalAlign: "center",
+
           itemclick: (e) => {
             if (e.dataSeries.visible === undefined || e.dataSeries.visible) e.dataSeries.visible = false;
             else e.dataSeries.visible = true;
             e.chart.render();
           }
         },
+
         data: stockData.map((action) => ({
           type: "line",
-          name: action.symbol, 
+          name: action.symbol,
           markerType: "circle",
           markerSize: 4,
           showInLegend: true,
@@ -65,12 +72,13 @@ const Chart = ({ symbols, startDate, endDate, compare }) => {
           dataPoints: action.data?.map((dataPoint) => ({
             label: new Date(dataPoint.date),
             x: new Date(dataPoint.date),
-            y: dataPoint.price
+            y: logReturn(dataPoint.price, dataPoint.priceopen)
           }))
         }))
+
       }}
     />
   );
 };
 
-export default Chart;
+export default Rentability;
