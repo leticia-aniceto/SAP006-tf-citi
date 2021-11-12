@@ -53,15 +53,21 @@ Nosso planejamento foi feito pelo GitHub Projects:
 Fizemos nosso protótipo, desktop e mobile de alta fidelidade pelo Figma:
 
 <h1>
-<img src="src/img/readme/prot01.png">
-<img src="src/img/readme/prot02.png">
-<img src="src/img/readme/prot03.png">
-<img src="src/img/readme/prot04.png">
-<img src="src/img/readme/protmobile.png">
+  <img src="src/img/readme/prot01.png">
+  <img src="src/img/readme/prot02.png">
+  <img src="src/img/readme/prot03.png">
+  <img src="src/img/readme/prot04.png">
+  <img src="src/img/readme/protmobile.png">
 </h1>
 
 
 ## 7. Interface Final 🎨
+
+<h1>
+  <img src="src/img/readme/citihome.png">
+  <img src="src/img/readme/searchciti.png">
+  <img src="src/img/readme/investimentos.png">
+</h1>
 
 ## 8. Tecnologias ⚙️
 
