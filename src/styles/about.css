@@ -1,0 +1,15 @@
+.main-title {
+    font-weight: bold;
+    margin: 2vw 0;
+}
+
+.profile-cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.col-md-3 {
+    margin: 1vw;
+}
